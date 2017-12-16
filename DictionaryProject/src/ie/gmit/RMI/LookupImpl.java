@@ -12,7 +12,9 @@ public class LookupImpl extends UnicastRemoteObject implements Lookup{
 
 	@Override
 	public String lookup(String s) throws RemoteException {
-		
+		if(!s.isEmpty()) {
+			return "You have entered " + s;
+		}
 		return null;
 	}
 	
