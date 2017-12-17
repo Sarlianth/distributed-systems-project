@@ -23,6 +23,8 @@
 			</tr>
 		
 		</table>
+		
+		<span class="error">${messages.description}</span>
 	
 	</form>
 

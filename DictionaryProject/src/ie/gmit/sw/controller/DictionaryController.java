@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ie.gmit.sw.model.LookupModel;
+import ie.gmit.sw.model.DictionaryModel;
 
-public class LookupController extends HttpServlet {
+public class DictionaryController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -28,7 +28,7 @@ public class LookupController extends HttpServlet {
 
 		if ((word != null && !word.isEmpty())) {
 
-			LookupModel service = new LookupModel();
+			DictionaryModel service = new DictionaryModel();
 			
 			String description = service.lookup(word);
 			
@@ -36,17 +36,18 @@ public class LookupController extends HttpServlet {
 			
 			if(description != null && !description.isEmpty()) {
 			
-				RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("lookup.jsp");
 				dispatcher.forward(request, response);
 				
 			} else {
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("error.html");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("lookup.jsp");
 				dispatcher.forward(request, response);
 			}
 		} else {
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("error.html");
+			messages.put("description", "Oops.. Something went wrong..");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("lookup.jsp");
 			dispatcher.forward(request, response);
 		}
 		

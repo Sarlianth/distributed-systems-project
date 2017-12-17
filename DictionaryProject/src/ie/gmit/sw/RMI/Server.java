@@ -11,7 +11,7 @@ public class Server {
 		
 		final int PORT = 1099;
 		
-		Lookup lookup = new LookupImpl();
+		DictionaryService lookup = new DictionaryServiceImpl();
 		
 		LocateRegistry.createRegistry(PORT);
 		

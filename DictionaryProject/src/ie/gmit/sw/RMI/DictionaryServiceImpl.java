@@ -6,9 +6,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.HashMap;
 
-public class LookupImpl extends UnicastRemoteObject implements Lookup{
+public class DictionaryServiceImpl extends UnicastRemoteObject implements DictionaryService{
 	private static final long serialVersionUID = 1L;
 	
 	//String csvFile = "dictionary.csv";
@@ -23,9 +24,9 @@ public class LookupImpl extends UnicastRemoteObject implements Lookup{
             while ((line = reader.readLine()) != null) {
 
                 // use comma as separator
-                String[] description = line.split(cvsSplitBy);
-
-                map.put(description[0], description[2]);
+                String[] args = line.split(cvsSplitBy);
+                
+                map.put(args[0].toUpperCase(), line.toString());
             }
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -34,21 +35,32 @@ public class LookupImpl extends UnicastRemoteObject implements Lookup{
     	
     }
     
-	protected LookupImpl() throws RemoteException {
+	protected DictionaryServiceImpl() throws RemoteException {
 		super();
 		read();
-		//System.out.println(map.values());
-		//System.out.println(map.containsKey("A"));
 	}
 
 	@Override
 	public String lookup(String s) throws RemoteException {
 		
-		if(map.containsKey(s)) {
-			return map.get(s);
+		if(map.containsKey("\"" + s.toUpperCase() + "\"")) {
+			//return s + " - " + map.get("\"" + s + "\"");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return map.get("\"" + s.toUpperCase() + "\"");
 		}
 		else {
-			return "Sorry, not found";
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return "Sorry, "+s+" was not found in dictionary";
 		}
 	}
 	

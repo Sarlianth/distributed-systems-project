@@ -5,9 +5,9 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-import ie.gmit.sw.RMI.Lookup;
+import ie.gmit.sw.RMI.DictionaryService;
 
-public class LookupModel {
+public class DictionaryModel {
 
 	private final int PORT = 1099;
 	private final String SERVICE_URL = "rmi://localhost:"+PORT+"/lookup";
@@ -17,7 +17,7 @@ public class LookupModel {
 			
 			try {
 				
-				Lookup lookup = (Lookup) Naming.lookup(SERVICE_URL);
+				DictionaryService lookup = (DictionaryService) Naming.lookup(SERVICE_URL);
 				
 				return lookup.lookup(s);
 				
