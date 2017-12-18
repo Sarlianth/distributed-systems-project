@@ -51,7 +51,9 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			return map.get("\"" + s.toUpperCase() + "\"");
+			String res = map.get("\"" + s.toUpperCase() + "\"");
+			res = res.replace("\"", " ");
+			return res;
 		}
 		else {
 			try {

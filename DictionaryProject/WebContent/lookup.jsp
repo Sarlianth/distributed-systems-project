@@ -1,32 +1,66 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Dictionary Application</title>
-</head>
-<body>
+<html lang="en">
 
-	<form action="lookup" method="post">
-	
-		<h1>Search dictionary</h1>
-	
-		<table cellpadding="5" cellspacing="5">
-		
-			<tr>
-				<td><label>Enter word to search</label></td>
-				<td><input type="text" name="word" /></td>
-			</tr>
-			
-			<tr>
-				<td></td>
-				<td align="right"><input type="submit" value="Search" /></td>
-			</tr>
-		
-		</table>
-		
-		<span class="error">${messages.description}</span>
-	
-	</form>
+  <head>
 
-</body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Online dictinary service that allows you to search for a definition of english words">
+    <meta name="author" content="Adrian Sypos">
+
+    <title>Dictionary Service</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+    <link href="bootstrap.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-light bg-light static-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Dictionary Service</a>
+        <a class="btn btn-primary" href="#">Add</a>
+      </div>
+    </nav>
+
+    <!-- Masthead -->
+    <header class="masthead text-white text-center">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <h1 class="mb-5">Search dictionary service</h1>
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <form action="lookup" method="post">
+              <div class="form-row">
+                <div class="col-12 col-md-9 mb-2 mb-md-0">
+                  <input type="text" name="word" class="form-control form-control-lg" placeholder="Enter word you wish to search..">
+                </div>
+                <div class="col-12 col-md-3">
+                  <button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-9 mx-auto">
+      </br></br>
+        <h5 class="mb-5" style="color: lightblue">${messages.description}</h5>
+      </div>
+    </header>
+    
+    <!-- Bootstrap core JavaScript -->
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+
+  </body>
+
 </html>

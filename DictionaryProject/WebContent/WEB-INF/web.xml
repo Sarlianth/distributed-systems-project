@@ -6,7 +6,7 @@
   </welcome-file-list>
   <servlet>
 		<servlet-name>Lookup</servlet-name>
-		<servlet-class>ie.gmit.sw.controller.LookupController</servlet-class>
+		<servlet-class>ie.gmit.sw.controller.DictionaryController</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>

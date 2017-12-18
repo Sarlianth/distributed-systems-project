@@ -17,7 +17,7 @@ public class Server {
 		
 		Naming.rebind("lookup", lookup);
 
-		System.out.println("Lookup service is ready.");
+		System.out.println("Dictionary service is ready.");
 	}
 
 }
