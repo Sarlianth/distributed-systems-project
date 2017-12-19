@@ -24,8 +24,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light static-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Dictionary Service</a>
-        <a class="btn btn-primary" href="#">Add</a>
+        <a class="navbar-brand" href="/DictionaryProject">Dictionary Service</a>
+        <a class="btn btn-primary" href="/DictionaryProject/add.jsp">Add</a>
       </div>
     </nav>
 

@@ -3,6 +3,7 @@ package ie.gmit.sw.RMI;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -64,6 +65,54 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 			}
 			return "Sorry, "+s+" was not found in dictionary";
 		}
+	}
+
+	@Override
+	public String add(String key, String desc) throws RemoteException {
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(map.containsKey("\"" + key.toUpperCase() + "\"")) {
+			return "Definition for " + key + " already exists in the dictionary..";
+		}
+		else {
+			map.put("\"" + key.toUpperCase() + "\"", upper(key) + ", " + desc);
+			try {
+				addToCSV(key, desc);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return "Successfully added " + key + " to the dictionary. Thank you.";
+		}
+
+	}
+	
+	public String upper(String s) {
+		s.toLowerCase();
+		char[] temp = s.toCharArray();
+		temp[0] = Character.toUpperCase(temp[0]);
+		String out = new String(temp);
+		return out;
+	}
+	
+	public void addToCSV(String key, String desc) throws IOException {
+		FileWriter pw = new FileWriter("file.csv",true); 
+		
+		pw.append("\"" + key.toUpperCase() + "\"");
+        pw.append(",");
+        pw.append(" ");
+        pw.append(",");
+        pw.append(desc);
+        pw.append("\n");
+		
+        pw.flush();
+        pw.close();
 	}
 	
 }

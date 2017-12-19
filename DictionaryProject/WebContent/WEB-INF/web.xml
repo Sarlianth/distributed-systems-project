@@ -3,14 +3,25 @@
   <display-name>DictionaryProject</display-name>
   <welcome-file-list>
     <welcome-file>lookup.jsp</welcome-file>
+    <welcome-file>add.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
+  	<servlet>
 		<servlet-name>Lookup</servlet-name>
 		<servlet-class>ie.gmit.sw.controller.DictionaryController</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>Add</servlet-name>
+		<servlet-class>ie.gmit.sw.controller.DictionaryControllerAdd</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>Lookup</servlet-name>
 		<url-pattern>/lookup</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Add</servlet-name>
+		<url-pattern>/add</url-pattern>
 	</servlet-mapping>
 </web-app>
