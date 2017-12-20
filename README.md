@@ -13,3 +13,11 @@ be periodically removed and processed (every 10 seconds).
 3. Change the current working directory to the location where you want the cloned directory to be made.
 4. Type `git clone`, and then paste the URL you copied in Step 2.
 5. Press Enter. Your local clone will be created.
+
+## How to run the application
+To run the application you should follow the following steps: 
+	1. Clone this repository [see above]
+	2. See files in dist folder
+	3. Deplot the Web Application Archive file called job-server.war in Tomcat
+	4. Run the following command `java –cp ./dictionary-service.jar ie.gmit.sw.Server` to run the RMI Services
+	5. Browse the servlets in Eclipse or your favourite browser under the following URL: `http://localhost:8080/DictionaryProject`
