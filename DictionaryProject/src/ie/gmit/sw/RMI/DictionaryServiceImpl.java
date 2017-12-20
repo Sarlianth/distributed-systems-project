@@ -1,14 +1,12 @@
 package ie.gmit.sw.RMI;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DictionaryServiceImpl extends UnicastRemoteObject implements DictionaryService{
@@ -29,6 +27,8 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
                 String[] args = line.split(cvsSplitBy);
                 
                 map.put(args[0].toUpperCase(), line.toString());
+                
+                reader.close();
             }
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
