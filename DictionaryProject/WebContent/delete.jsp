@@ -8,7 +8,7 @@
     <meta name="description" content="Online dictinary service that allows you to search for a definition of english words">
     <meta name="author" content="Adrian Sypos">
 
-    <title>Add | Dictionary Service</title>
+    <title>Delete | Dictionary Service</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -20,7 +20,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 	
-
   </head>
 
   <body>
@@ -38,10 +37,10 @@
 	        <a class="nav-link" href="/DictionaryProject">Search</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/DictionaryProject/add.jsp">Add <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href="/DictionaryProject/add.jsp">Add</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link disabled" href="/DictionaryProject/delete.jsp">Delete</a>
+	        <a class="nav-link disabled" href="/DictionaryProject/delete.jsp">Delete <span class="sr-only">(current)</span></a>
 	      </li>
 	    </ul>
 	    <form class="form-inline my-2 my-lg-0" action="lookup" method="post">
@@ -55,31 +54,24 @@
     <header class="masthead text-white text-center">
       <div class="overlay"></div>
       <div class="container">
-      
-      <div class="col-xl-9 mx-auto">
-         <h1 class="mb-5">Add to dictionary service</h1>
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <h1 class="mb-5">Delete from dictionary service</h1>
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <form action="delete" method="post">
+              <div class="form-row">
+                <div class="col-12 col-md-9 mb-2 mb-md-0">
+                  <input type="text" name="word" class="form-control form-control-lg" placeholder="Enter word you wish to delete..">
+                </div>
+                <div class="col-12 col-md-3">
+                  <button type="submit" class="btn btn-block btn-lg btn-primary">Delete</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-
-	  <form action="add" method="post">
-	    <div class="form-group row">
-	      <label for="key" class="col-sm-2 col-form-label">Word</label>
-	      <div class="col-sm-10">
-	        <input type="text" class="form-control" name="key" placeholder="Enter the word you wish to add..">
-	      </div>
-	    </div>
-	    <div class="form-group row">
-	      <label for="desc" class="col-sm-2 col-form-label">Description</label>
-	      <div class="col-sm-10">
-	        <input type="text" class="form-control" name="desc" placeholder="Enter description of the word..">
-	      </div>
-	    </div>
-	    <div class="form-group row">
-	      <div class="offset-sm-2 col-sm-10">
-	        <button type="submit" class="btn btn-primary">Add</button>
-	      </div>
-	    </div>
-	  </form>
-	</div>
       <div class="col-xl-9 mx-auto">
       </br></br>
         <h5 class="mb-5" style="color: lightblue">${messages.description}</h5>

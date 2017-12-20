@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -104,7 +105,7 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 	public void addToCSV(String key, String desc) throws IOException {
 		FileWriter pw = new FileWriter("file.csv",true); 
 		
-		pw.append("\"" + key.toUpperCase() + "\"");
+		pw.append("\"" + upper(key) + "\"");
         pw.append(",");
         pw.append(" ");
         pw.append(",");
@@ -113,6 +114,45 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 		
         pw.flush();
         pw.close();
+	}
+	
+	public void mapToCSV(HashMap<String, String> m) {
+		try (Writer writer = new FileWriter("file.csv")) {
+			  for (HashMap.Entry<String, String> entry : map.entrySet()) {
+			    writer.append(entry.getValue())
+			          .append("\n");
+			  }
+			} catch (IOException ex) {
+			  ex.printStackTrace(System.err);
+			}
+	}
+
+	@Override
+	public String delete(String key) throws RemoteException {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(map.containsKey("\"" + key + "\"") || map.containsKey("\"" + key.toUpperCase() + "\"") || map.containsKey("\"" + upper(key) + "\"")) {
+			if(map.containsKey("\"" + key + "\"")) {
+				map.remove("\"" + key + "\"");
+			}
+			else if(map.containsKey("\"" + key.toUpperCase() + "\"")) {
+				map.remove("\"" + key.toUpperCase() + "\"");
+			}
+			else if(map.containsKey("\"" + upper(key) + "\"")) {
+				map.remove("\"" + upper(key) + "\"");
+			}
+			
+			mapToCSV(map);
+			return key + " has been successfully deleted from dictionary..";
+		}
+		else {
+			return key + " doesn't exist in the dictionary..";
+		}
 	}
 	
 }
