@@ -20,7 +20,8 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
     public void read() {
     
     	try {
-			BufferedReader reader = new BufferedReader(new FileReader("file.csv"));
+
+    		BufferedReader reader = new BufferedReader(new FileReader("file.csv"));
             while ((line = reader.readLine()) != null) {
 
                 // use comma as separator
