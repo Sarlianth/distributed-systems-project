@@ -20,7 +20,8 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
     public void read() {
     
     	try {
-			BufferedReader reader = new BufferedReader(new FileReader("file.csv"));
+
+    		BufferedReader reader = new BufferedReader(new FileReader("file.csv"));
             while ((line = reader.readLine()) != null) {
 
                 // use comma as separator
@@ -152,5 +153,29 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 			return key + " doesn't exist in the dictionary..";
 		}
 	}
-	
+
+	@Override
+	public String modify(String key, String desc) throws RemoteException {
+		if(map.containsKey("\"" + key + "\"") || map.containsKey("\"" + key.toUpperCase() + "\"") || map.containsKey("\"" + upper(key) + "\"")) {
+			if(map.containsKey("\"" + key + "\"")) {
+				map.replace("\"" + key + "\"", upper(key) + ", " + desc);
+			}
+			else if(map.containsKey("\"" + key.toUpperCase() + "\"")) {
+				map.replace("\"" + key.toUpperCase() + "\"", upper(key) + ", " + desc);
+			}
+			else if(map.containsKey("\"" + upper(key) + "\"")) {
+				map.replace("\"" + upper(key) + "\"", upper(key) + ", " + desc);
+			}
+			try {
+				addToCSV(key, desc);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return key + " has been successfully updated..";
+		}
+		else{
+			return "Sorry, " + key + " has not been found in dictionary..\nYou can add it using the menu above..";
+		}
+	}
 }

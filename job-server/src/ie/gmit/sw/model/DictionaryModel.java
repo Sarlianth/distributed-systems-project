@@ -59,4 +59,19 @@ public class DictionaryModel {
 		
 		return "Oops.. Something went wrong..";
 	}
+	
+	public String modify(String key, String desc) {
+		try {
+			
+			DictionaryService lookup = (DictionaryService) Naming.lookup(SERVICE_URL);
+			
+			return lookup.modify(key,desc);
+			
+		} catch (MalformedURLException | RemoteException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "Oops.. Something went wrong..";
+	}
 }

@@ -42,6 +42,9 @@
 	      <li class="nav-item">
 	        <a class="nav-link disabled" href="/job-server/delete.jsp">Delete</a>
 	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link disabled" href="/job-server/modify.jsp">Modify</a>
+	      </li>
 	    </ul>
 	    <form class="form-inline my-2 my-lg-0" action="lookup" method="post">
 	      <input class="form-control mr-sm-2" name="word" type="text" placeholder="Search" aria-label="Search">

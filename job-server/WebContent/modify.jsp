@@ -8,7 +8,7 @@
     <meta name="description" content="Online dictinary service that allows you to search for a definition of english words">
     <meta name="author" content="Adrian Sypos">
 
-    <title>Add | Dictionary Service</title>
+    <title>Modify | Dictionary Service</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -38,13 +38,13 @@
 	        <a class="nav-link" href="/job-server">Search</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/job-server/add.jsp">Add <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href="/job-server/add.jsp">Add</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link disabled" href="/job-server/delete.jsp">Delete</a>
 	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link disabled" href="/job-server/modify.jsp">Modify</a>
+   	      <li class="nav-item">
+	        <a class="nav-link disabled" href="/job-server/modify.jsp">Modify <span class="sr-only">(current)</span></a>
 	      </li>
 	    </ul>
 	    <form class="form-inline my-2 my-lg-0" action="lookup" method="post">
@@ -60,25 +60,25 @@
       <div class="container">
       
       <div class="col-xl-9 mx-auto">
-         <h1 class="mb-5">Add to dictionary service</h1>
+         <h1 class="mb-5">Modify entry</h1>
       </div>
 
-	  <form action="add" method="post">
+	  <form action="modify" method="post">
 	    <div class="form-group row">
 	      <label for="key" class="col-sm-2 col-form-label">Word</label>
 	      <div class="col-sm-10">
-	        <input type="text" class="form-control" name="key" placeholder="Enter the word you wish to add..">
+	        <input type="text" class="form-control" name="key" placeholder="Enter the word you wish to modify..">
 	      </div>
 	    </div>
 	    <div class="form-group row">
 	      <label for="desc" class="col-sm-2 col-form-label">Description</label>
 	      <div class="col-sm-10">
-	        <input type="text" class="form-control" name="desc" placeholder="Enter description of the word..">
+	        <input type="text" class="form-control" name="desc" placeholder="Enter new description..">
 	      </div>
 	    </div>
 	    <div class="form-group row">
 	      <div class="offset-sm-2 col-sm-10">
-	        <button type="submit" class="btn btn-primary">Add</button>
+	        <button type="submit" class="btn btn-primary">Apply changes</button>
 	      </div>
 	    </div>
 	  </form>

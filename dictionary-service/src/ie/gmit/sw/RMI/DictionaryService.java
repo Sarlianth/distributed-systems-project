@@ -10,5 +10,7 @@ public interface DictionaryService extends Remote{
 	public String add(String key, String desc) throws RemoteException;
 	
 	public String delete(String key) throws RemoteException;
+	
+	public String modify(String key, String desc) throws RemoteException;
 
 }

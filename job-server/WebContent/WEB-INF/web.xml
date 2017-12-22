@@ -18,6 +18,10 @@
     <servlet-name>Delete</servlet-name>
     <servlet-class>ie.gmit.sw.controller.DictionaryControllerDelete</servlet-class>
   </servlet>
+    <servlet>
+    <servlet-name>Modify</servlet-name>
+    <servlet-class>ie.gmit.sw.controller.DictionaryControllerModify</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>Lookup</servlet-name>
     <url-pattern>/lookup</url-pattern>
@@ -29,5 +33,9 @@
   <servlet-mapping>
     <servlet-name>Delete</servlet-name>
     <url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>Modify</servlet-name>
+    <url-pattern>/modify</url-pattern>
   </servlet-mapping>
 </web-app>
