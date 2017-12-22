@@ -16,3 +16,5 @@ To run the application you should follow the following steps:
 7. Make sure to change Target runtime to Apache Tomcat 8.5 [This is the one I have used while developing the application]
 8. Once you imported the .WAR file just click Run As.. [Run on Server]
 9. Eclipse will automatically open the homepage for you once successfully deployed, but you can use your favourite browser and access the web app using the following URL - http://localhost:8080/job-server/
+
+If you wish to have a look at the code, please see https://github.com/Sarlianth/distributed-systems-project
