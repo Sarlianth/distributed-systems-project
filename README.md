@@ -17,7 +17,11 @@ be periodically removed and processed (every 10 seconds).
 ## How to run the application
 To run the application you should follow the following steps: 
 1. Clone this repository [see above]
-2. See files in dist folder
-3. Deplot the Web Application Archive file called job-server.war in Tomcat
-4. Run the following command `java –cp ./dictionary-service.jar ie.gmit.sw.Server` to run the RMI Services
-5. Browse the servlets in Eclipse or your favourite browser under the following URL: `http://localhost:8080/DictionaryProject`
+2. Note 3 important files: file.csv - job-server.war - dictionary-service.jar
+3. Make sure you have file.csv and dictionary-service.jar in one directory - otherwise you will not allow the RMI server to load the dictionary
+4. Open command line prompt and `cd` into the directory where you have all the files listed above
+5. Run the following command to start the RMI server - `java –cp ./dictionary-service.jar ie.gmit.sw.RMI.Server`
+6. Once the server is running, open Eclipse [Java EE Perspective] and import the job-server.war file
+7. Make sure to change Target runtime to Apache Tomcat 8.5 [This is the one I have used while developing the application]
+8. Once you imported the .WAR file just click Run As.. [Run on Server]
+9. Eclipse will automatically open the homepage for you once successfully deployed, but you can use your favourite browser and access the web app using the following URL - `http://localhost:8080/job-server/`
